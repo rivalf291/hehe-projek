@@ -15,7 +15,7 @@ $breadcrumb_title = 'Dashboard';
                   <div class="col-md-6">
                     <div class="card border-light px-4">
                       <div class="card-header">Total Domain</div>
-                      <div class="card-body text-light">
+                      <div class="card-body">
                         <h5 class="card-title">15 Domain</h5>
                         <p class="card-text">15 domain dikelola di panel ini.</p>
                       </div>
@@ -24,7 +24,7 @@ $breadcrumb_title = 'Dashboard';
                   <div class="col-md-6">
                     <div class="card border-light px-4">
                       <div class="card-header">Total Short Link</div>
-                      <div class="card-body text-light">
+                      <div class="card-body">
                         <h5 class="card-title">13 Short Link</h5>
                         <p class="card-text">13 Domain dikelola di panel ini.</p>
                       </div>
@@ -35,7 +35,7 @@ $breadcrumb_title = 'Dashboard';
                   <div class="col-md-6">
                     <div class="card border-light px-4">
                       <div class="card-header">User Level</div>
-                      <div class="card-body text-light">
+                      <div class="card-body">
                         <h5 class="card-title">Basic</h5>
                         <p class="card-text">Benefit <br> * A <br> * B <br> * C</p>
                       </div>
@@ -44,7 +44,7 @@ $breadcrumb_title = 'Dashboard';
                   <div class="col-md-6">
                     <div class="card border-light px-4">
                       <div class="card-header">Upgrade Level / Ada Masalah?</div>
-                      <div class="card-body text-light">
+                      <div class="card-body">
                         <h5 class="card-title">Hubungi Kami</h5>
                         <p class="card-text"><a class="btn btn-primary" href="#" role="button">Telegram</a></p>
                       </div>

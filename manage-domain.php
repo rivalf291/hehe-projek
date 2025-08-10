@@ -15,7 +15,7 @@ $breadcrumb_title = 'Manage Domain';
                 
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <strong>Semua Domain</strong>
+                    <strong>Kelola Domain</strong>
                     <a href="manage-domain.php" class="btn btn-primary btn-sm">Tambah Domain</a>
                   </div>
                   <div class="card-body">
