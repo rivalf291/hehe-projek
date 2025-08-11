@@ -73,6 +73,11 @@ function updateDomain($pdo, $id, $data) {
     return $stmt->execute([$data['domain_name'], $data['status'], $id]);
 }
 
+function updateUser($pdo, $id, $data) {
+    $stmt = $pdo->prepare("UPDATE users SET username = ?, password_hash = ?, level =?  WHERE id = ?");
+    return $stmt->execute([$data['username'], $data['password_hash'], $data['level'], $id]);
+}
+
 // Fungsi untuk update short link
 function updateShortLink($pdo, $id, $data) {
     $stmt = $pdo->prepare("UPDATE short_links SET short_code = ?, original_url = ?, status = ? WHERE id = ?");
@@ -82,6 +87,11 @@ function updateShortLink($pdo, $id, $data) {
 // Fungsi untuk menghapus domain
 function deleteDomain($pdo, $id) {
     $stmt = $pdo->prepare("DELETE FROM domains WHERE id = ?");
+    return $stmt->execute([$id]);
+}
+
+function deleteUser($pdo, $id) {
+    $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
     return $stmt->execute([$id]);
 }
 
