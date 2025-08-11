@@ -16,9 +16,12 @@
       });
     </script>
     <!-- Plugins and scripts required by this view-->
-    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
-    <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script>
+    <!-- <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script> -->
     <script src="node_modules/@coreui/utils/dist/umd/index.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

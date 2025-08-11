@@ -1,10 +1,6 @@
 <?php
-require_once 'config.php';
 $page_title = 'Domain List';
 $breadcrumb_title = 'Domain List';
-
-// Ambil semua domain dari database
-$domains = getAllDomains($pdo);
 ?>
 <?php include 'template/header.php'; ?>
 <?php include 'template/sidebar.php'; ?>
@@ -33,18 +29,24 @@ $domains = getAllDomains($pdo);
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($domains as $index => $domain): ?>
                           <tr>
-                            <td><?= $index + 1 ?></td>
-                            <td><?= htmlspecialchars($domain['domain_name']) ?></td>
-                            <td>
-                              <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
-                                <?= $domain['status'] ?>
-                              </span>
-                            </td>
-                            <td><?= date('d M Y', strtotime($domain['created_at'])) ?></td>
+                            <td>1</td>
+                            <td>example.com</td>
+                            <td><span class="badge bg-success">Aman</span></td>
+                            <td>01 Jan 2024</td>
                           </tr>
-                          <?php endforeach; ?>
+                          <tr>
+                            <td>2</td>
+                            <td>test.net</td>
+                            <td><span class="badge bg-danger">Nawala</span></td>
+                            <td>15 Feb 2024</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>demo.org</td>
+                            <td><span class="badge bg-danger">Nawala</span></td>
+                            <td>10 Mar 2024</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -54,14 +56,5 @@ $domains = getAllDomains($pdo);
             </div>
           </div>
         </div>
-
-<script>
-function deleteDomain(id) {
-    if (confirm('Apakah Anda yakin ingin menghapus domain ini?')) {
-        // Implementasi AJAX untuk delete
-        window.location.href = 'manage-domain.php?delete=' + id;
-    }
-}
-</script>
 
 <?php include 'template/footer.php'; ?>
