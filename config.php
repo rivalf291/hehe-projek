@@ -23,6 +23,12 @@ function getAllDomains($pdo) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getAllUsers($pdo) {
+    $stmt = $pdo->prepare("SELECT * FROM users ORDER BY created_at DESC");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 // Fungsi untuk mendapatkan semua short links
 function getAllShortLinks($pdo) {
     $stmt = $pdo->prepare("SELECT * FROM short_links ORDER BY created_at DESC");
@@ -48,6 +54,11 @@ function getShortLinkById($pdo, $id) {
 function addDomain($pdo, $data) {
     $stmt = $pdo->prepare("INSERT INTO domains (domain_name, status, created_at) VALUES (?, ?, NOW())");
     return $stmt->execute([$data['domain_name'], $data['status']]);
+}
+
+function addUser($pdo, $data) {
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash, created_at, level) VALUES (?, ?, ?, NOW(), ?)");
+    return $stmt->execute([$data['username'], $data['email'],$data['password_hash'],$data['level']]);
 }
 
 // Fungsi untuk menambah short link baru

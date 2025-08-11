@@ -39,10 +39,14 @@ $totalShortLinks = count(getAllShortLinks($pdo));
                   
                   <!-- Baris 2 -->
                   <div class="col-md-6">
-                    <div class="card">
+                  <div class="card">
                       <div class="card-header">User Level</div>
                       <div class="card-body">
-                        <h5 class="card-title">Basic</h5>
+                        <?php
+                        session_start();
+                        $userLevel = $_SESSION['level'] ?? 'basic';
+                        ?>
+                        <h5 class="card-title"><?= ucfirst($userLevel) ?></h5>
                         <p class="card-text">Benefit <br> * A <br> * B <br> * C</p>
                       </div>
                     </div>
