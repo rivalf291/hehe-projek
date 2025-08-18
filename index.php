@@ -67,3 +67,4 @@ $totalShortLinks = count(getAllShortLinks($pdo));
         </div>
 
 <?php include 'template/footer.php'; ?>
+<?php include 'template/toast-notification.php'; ?>

@@ -27,17 +27,12 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
-    <link rel="stylesheet" href="node_modules/simplebar/dist/simplebar.css">
-    <link rel="stylesheet" href="css/vendors/simplebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
     <!-- Main styles for this application-->
     <link href="css/style.css" rel="stylesheet">
-    <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link href="css/examples.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/color-modes.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
-    <!-- <link href="node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css" rel="stylesheet"> -->
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   </head>
   <body>

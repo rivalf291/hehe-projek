@@ -26,21 +26,22 @@ $userLevel = $_SESSION['level'] ?? 'basic';
         </li>
         <?php if ($userLevel == 'super' || $userLevel == 'admin'): ?>
         <li class="nav-title">Short Link</li>
-        <li class="nav-group"><a class="nav-link nav-group" href="generate-shortlink.php">
+        <li class="nav-group" id="short-link-menu"><a class="nav-link nav-group" href="generate-shortlink.php">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-cog"></use>
             </svg> Generate Short Link</a>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group" href="manage-shortlink.php">
+        <li class="nav-group" id="short-link-menu"><a class="nav-link nav-group" href="manage-shortlink.php">
           <svg class="nav-icon">
           <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-color-border"></use>
             </svg> Manage Short Link</a>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group" href="shortlink-list.php">
+        <li class="nav-group" id="short-link-menu"><a class="nav-link nav-group" href="shortlink-list.php">
         <svg class="nav-icon">
           <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-notes"></use>
             </svg> Short Link List</a>
         </li>
+
         <?php endif; ?>
         <li class="nav-title">Telegram</li>
         <li class="nav-group"><a class="nav-link nav-group" href="telegram.php">
