@@ -13,6 +13,18 @@ foreach ($allDomainsHeader as $domain) {
         // Kumpulkan semua nama domain yang terkena nawala
         $nawalaDomainsHeader[] = htmlspecialchars($domain['domain_name']);
     }
+    else if (isset($domain['statusxl']) && strtolower($domain['statusxl']) === 'nawala') {
+        // Kumpulkan semua nama domain yang terkena nawala
+        $nawalaDomainsHeader[] = htmlspecialchars($domain['domain_name']);
+    }
+    else if (isset($domain['statustsel']) && strtolower($domain['statustsel']) === 'nawala') {
+        // Kumpulkan semua nama domain yang terkena nawala
+        $nawalaDomainsHeader[] = htmlspecialchars($domain['domain_name']);
+    }
+    else if (isset($domain['statusisat']) && strtolower($domain['statusisat']) === 'nawala') {
+        // Kumpulkan semua nama domain yang terkena nawala
+        $nawalaDomainsHeader[] = htmlspecialchars($domain['domain_name']);
+    }
 }
 
 // Jika ada domain yang terkena nawala, buat pesan notifikasi yang spesifik

@@ -64,51 +64,51 @@ $domains = getAllDomains($pdo);
                             </td>
                             <?php if ($userLevel == 'premium'): ?>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusxl'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusxl'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statustsel'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statustsel'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusisat'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusisat'] ?>
                                   </span>
                                 </td>
                               <?php endif; ?> 
                               <?php if ($userLevel == 'super'): ?>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusxl'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusxl'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statustsel'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statustsel'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusisat'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusisat'] ?>
                                   </span>
                                 </td>
                               <?php endif; ?> 
                               <?php if ($userLevel == 'admin'): ?>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusxl'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusxl'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statustsel'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statustsel'] ?>
                                   </span>
                                 </td>
                                 <td>
-                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <span class="badge bg-<?= $domain['statusisat'] == 'Aman' ? 'success' : 'danger' ?>">
                                   <?= $domain['statusisat'] ?>
                                   </span>
                                 </td>
