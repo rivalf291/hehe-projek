@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="body flex-grow-1">
   <div class="container">
-    <div class="row">
+    <div class="row min-vh-100">
       <div class="col-12">
         <h1>Generate Short Link</h1>
         <p class="lead">Buat short link untuk URL panjang Anda dengan mudah.</p>

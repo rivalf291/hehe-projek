@@ -12,7 +12,7 @@ $shortLinks = getAllShortLinks($pdo);
 
 <div class="body flex-grow-1">
   <div class="container">
-    <div class="row">
+    <div class="row min-vh-100">
       <div class="col-12">
         <h1>Short Link List</h1>
         <p class="lead">Daftar semua short link yang tersedia.</p>

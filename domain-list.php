@@ -12,7 +12,7 @@ $domains = getAllDomains($pdo);
 
       <div class="body flex-grow-1">
           <div class="container">
-            <div class="row">
+            <div class="row min-vh-100">
               <div class="col-12">
                 <h1>Daftar Domain</h1>
                 <p class="lead">Semua domain yang terdaftar di sistem.</p>

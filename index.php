@@ -1,12 +1,45 @@
 <?php
 require_once 'config.php';
 
+session_start();
+
 $page_title = 'Dashboard';
 $breadcrumb_title = 'Dashboard';
 
 // Ambil total domain dan short link dari database
-$totalDomains = count(getAllDomains($pdo));
+$allDomains = getAllDomains($pdo);
+$totalDomains = count($allDomains);
 $totalShortLinks = count(getAllShortLinks($pdo));
+
+// Cek status nawala pada domain
+$nawalaDomains = [];
+foreach ($allDomains as $domain) {
+    // Gunakan strtolower untuk memastikan pengecekan tidak case-sensitive
+    if (isset($domain['status']) && strtolower($domain['status']) === 'nawala') {
+        // Kumpulkan semua nama domain yang terkena nawala
+        $nawalaDomains[] = htmlspecialchars($domain['domain_name']);
+    }
+}
+
+// Jika ada domain yang terkena nawala, buat pesan notifikasi yang spesifik
+if (!empty($nawalaDomains)) {
+    $_SESSION['nawala_count'] = count($nawalaDomains);
+    if (count($nawalaDomains) > 1) {
+        // Pesan untuk lebih dari satu domain
+        $domainList = implode(', ', $nawalaDomains);
+        $_SESSION['nawala_notification'] = "Peringatan: Domain berikut terindikasi Nawala: {$domainList}. Silakan periksa Manage Domain.";
+    } else {
+        // Pesan untuk satu domain
+        $domainName = $nawalaDomains[0];
+        $_SESSION['nawala_notification'] = "Peringatan: Domain '{$domainName}' terindikasi Nawala. Silakan periksa Manage Domain.";
+    }
+} else {
+    unset($_SESSION['nawala_notification']);
+    unset($_SESSION['nawala_count']);
+}
+
+// Untuk debugging, Anda bisa uncomment baris di bawah ini untuk melihat isi session
+// var_dump($_SESSION);
 ?>
 <?php include 'template/header.php'; ?>
 <?php include 'template/sidebar.php'; ?>
@@ -43,11 +76,20 @@ $totalShortLinks = count(getAllShortLinks($pdo));
                       <div class="card-header">User Level</div>
                       <div class="card-body">
                         <?php
-                        session_start();
                         $userLevel = $_SESSION['level'] ?? 'basic';
                         ?>
                         <h5 class="card-title"><?= ucfirst($userLevel) ?></h5>
-                        <p class="card-text">Benefit <br> * A <br> * B <br> * C</p>
+                        <p class="card-text">Benefit <br> * Manage Domain <br> * Auto Cek Domain Via Trust Positif <br> * Telegram Group
+                        <?php if ($userLevel == 'premium'): ?>
+                          <br> * Auto Cek Nawala Via Provider (XL, Telkomsel, Indosat)
+                        <?php endif; ?>  
+                        <?php if ($userLevel == 'super'): ?>
+                          <br> * Generate Short Link <br> * Manage Short Link
+                        <?php endif; ?>
+                        <?php if ($userLevel == 'admin'): ?>
+                          <br> * Manage User
+                        <?php endif; ?>
+                      </p>
                       </div>
                     </div>
                   </div>

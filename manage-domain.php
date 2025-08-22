@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
 <div class="body flex-grow-1">
   <div class="container">
-    <div class="row">
+    <div class="row min-vh-100">
       <div class="col-12">
         <h1>Manage Domain</h1>
         <p class="lead">Kelola semua domain Anda dengan mudah</p>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                         Edit
                       </button>
                       <a href="manage-domain.php?delete=<?= $domain['id'] ?>" class="btn btn-sm btn-outline-danger" 
-                         onclick="return confirm('Apakah Anda yakin ingin menghapus domain ini?')">Hapus</a>
+                        onclick="return confirm('Apakah Anda yakin ingin menghapus domain ini?')">Hapus</a>
                     </td>
                   </tr>
                   <?php endforeach; ?>
@@ -107,57 +107,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     </div>
   </div>
 </div>
-<!-- Modal Tambah Domain -->
-<div class="modal fade" id="addDomainModal" tabindex="-1" aria-labelledby="addDomainModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addDomainModalLabel">Tambah Domain Baru</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="">
-          <input type="hidden" name="action" value="add">
-          <div class="mb-3">
-            <label for="domain_name" class="form-label">Nama Domain</label>
-            <input type="text" class="form-control" id="domain_name" name="domain_name" required 
-                   placeholder="contoh: example.com">
+    <!-- Modal Tambah Domain -->
+    <div class="modal fade" id="addDomainModal" tabindex="-1" aria-labelledby="addDomainModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addDomainModalLabel">Tambah Domain Baru</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary">Simpan Domain</button>
+          <div class="modal-body">
+            <form method="post" action="">
+              <input type="hidden" name="action" value="add">
+              <div class="mb-3">
+                <label for="domain_name" class="form-label">Nama Domain</label>
+                <input type="text" class="form-control" id="domain_name" name="domain_name" required 
+                      placeholder="contoh: example.com">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan Domain</button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Modal Edit Domain -->
-<div class="modal fade" id="editDomainModal" tabindex="-1" aria-labelledby="editDomainModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editDomainModalLabel">Edit Domain</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="">
-          <input type="hidden" name="action" value="edit">
-          <input type="hidden" name="id" id="edit_id">
-          <div class="mb-3">
-            <label for="edit_domain_name" class="form-label">Nama Domain</label>
-            <input type="text" class="form-control" id="edit_domain_name" name="domain_name" required>
+    <!-- Modal Edit Domain -->
+    <div class="modal fade" id="editDomainModal" tabindex="-1" aria-labelledby="editDomainModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editDomainModalLabel">Edit Domain</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary">Update Domain</button>
+          <div class="modal-body">
+            <form method="post" action="">
+              <input type="hidden" name="action" value="edit">
+              <input type="hidden" name="id" id="edit_id">
+              <div class="mb-3">
+                <label for="edit_domain_name" class="form-label">Nama Domain</label>
+                <input type="text" class="form-control" id="edit_domain_name" name="domain_name" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Update Domain</button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 <script>
 // Fungsi untuk edit domain

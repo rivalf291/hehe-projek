@@ -1,6 +1,6 @@
 <footer class="footer px-4">
-        <div><a href="https://github.com/rivalf291/projekguys.git">Projek Guys </a> &copy; 2025.</div>
-        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/docs/">CoreUI UI Components</a></div>
+        <div class="ms-auto"><a href="https://infonawala.id">Infonawala.id </a> &copy; 2025.</div>
+        <!-- <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/docs/">CoreUI UI Components</a></div> -->
       </footer>
     </div>
     <!-- CoreUI and necessary plugins-->

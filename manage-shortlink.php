@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
 <div class="body flex-grow-1">
   <div class="container">
-    <div class="row">
+    <div class="row min-vh-100">
       <div class="col-12">
         <h1>Manage Short Link</h1>
         <p class="lead">Kelola semua short link Anda dengan mudah</p>

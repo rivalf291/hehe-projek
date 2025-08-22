@@ -1,3 +1,39 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../config.php';
+
+// Cek status nawala pada domain di setiap halaman
+$allDomainsHeader = getAllDomains($pdo);
+$nawalaDomainsHeader = [];
+foreach ($allDomainsHeader as $domain) {
+    // Gunakan strtolower untuk memastikan pengecekan tidak case-sensitive
+    if (isset($domain['status']) && strtolower($domain['status']) === 'nawala') {
+        // Kumpulkan semua nama domain yang terkena nawala
+        $nawalaDomainsHeader[] = htmlspecialchars($domain['domain_name']);
+    }
+}
+
+// Jika ada domain yang terkena nawala, buat pesan notifikasi yang spesifik
+if (!empty($nawalaDomainsHeader)) {
+    $_SESSION['nawala_count'] = count($nawalaDomainsHeader);
+    if (count($nawalaDomainsHeader) > 1) {
+        // Pesan untuk lebih dari satu domain
+        $domainList = implode(', ', $nawalaDomainsHeader);
+        $_SESSION['nawala_notification'] = "Peringatan: Domain berikut terindikasi Nawala: {$domainList}. Silakan periksa Manage Domain.";
+    } else {
+        // Pesan untuk satu domain
+        $domainName = $nawalaDomainsHeader[0];
+        $_SESSION['nawala_notification'] = "Peringatan: Domain '{$domainName}' terindikasi Nawala. Silakan periksa Manage Domain.";
+    }
+} else {
+    // Jika tidak ada domain nawala, bersihkan session terkait
+    unset($_SESSION['nawala_notification']);
+    unset($_SESSION['nawala_count']);
+}
+?>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
   <head>

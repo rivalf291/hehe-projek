@@ -1,8 +1,12 @@
 <div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
       <div class="sidebar-header border-bottom">
-        <div class="sidebar-brand">
-          <span class="badge badge-xl bg-info ms-auto">Projek Guys</span>
-        </div>
+        <a class="sidebar-brand d-flex align-items-center" href="index.php" style="text-decoration: none; color: inherit;">
+          <svg class="sidebar-brand-full icon icon-lg me-2">
+              <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-shield-alt"></use>
+          </svg>
+          <span class="sidebar-brand-full" style="font-weight: 600;">infonawala.id</span>
+          <svg class="sidebar-brand-narrow" width="32" height="32" alt="Logo"><use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-shield-alt"></use></svg>
+        </a>
         <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"></button>
       </div>
 <?php
@@ -54,13 +58,13 @@ $userLevel = $_SESSION['level'] ?? 'basic';
           <li class="nav-group"><a class="nav-link nav-group" href="manage-users.php">
         <svg class="nav-icon">
           <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-color-border"></use>
-            </svg> Manage Admin</a>
+            </svg> Manage Users</a>
         </li>
         <?php endif; ?>
-        <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/bootstrap/docs/templates/installation/" target="_blank">
+        <!-- <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/bootstrap/docs/templates/installation/" target="_blank">
             <svg class="nav-icon">
               <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-description"></use>
-            </svg> Docs</a></li>
+            </svg> Docs</a></li> -->
       </ul>
       <div class="sidebar-footer border-top d-none d-md-flex">     
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
