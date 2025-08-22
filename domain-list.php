@@ -28,7 +28,27 @@ $domains = getAllDomains($pdo);
                           <tr>
                             <th>No</th>
                             <th>Domain</th>
+                            <?php if ($userLevel == 'basic'): ?>
                             <th>Status</th>
+                            <?php endif; ?> 
+                            <?php if ($userLevel == 'premium'): ?>
+                            <th>Status Trust+</th>
+                            <th>Status XL</th>
+                            <th>Status TSEL</th>
+                            <th>Status INDOSAT</th>
+                            <?php endif; ?> 
+                            <?php if ($userLevel == 'super'): ?>
+                            <th>Status Trust+</th>
+                            <th>Status XL</th>
+                            <th>Status TSEL</th>
+                            <th>Status INDOSAT</th>
+                            <?php endif; ?> 
+                            <?php if ($userLevel == 'admin'): ?>
+                            <th>Status Trust+</th>
+                            <th>Status XL</th>
+                            <th>Status TSEL</th>
+                            <th>Status INDOSAT</th>
+                            <?php endif; ?> 
                             <th>Tanggal Registrasi</th>
                           </tr>
                         </thead>
@@ -42,6 +62,57 @@ $domains = getAllDomains($pdo);
                                 <?= $domain['status'] ?>
                               </span>
                             </td>
+                            <?php if ($userLevel == 'premium'): ?>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusxl'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statustsel'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusisat'] ?>
+                                  </span>
+                                </td>
+                              <?php endif; ?> 
+                              <?php if ($userLevel == 'super'): ?>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusxl'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statustsel'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusisat'] ?>
+                                  </span>
+                                </td>
+                              <?php endif; ?> 
+                              <?php if ($userLevel == 'admin'): ?>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusxl'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statustsel'] ?>
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="badge bg-<?= $domain['status'] == 'Aman' ? 'success' : 'danger' ?>">
+                                  <?= $domain['statusisat'] ?>
+                                  </span>
+                                </td>
+                              <?php endif; ?> 
                             <td><?= date('d M Y', strtotime($domain['created_at'])) ?></td>
                           </tr>
                           <?php endforeach; ?>
