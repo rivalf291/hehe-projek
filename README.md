@@ -3,7 +3,7 @@
 
 Private Project For Make Bot
 
-https:infonawala.id
+https://infonawala.id
 
 
 
