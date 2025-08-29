@@ -4,8 +4,8 @@
       </footer>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
-    <script src="node_modules/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="vendors/simplebar/js/simplebar.min.js"></script>
     <script>
       const header = document.querySelector('header.header');
       
@@ -16,9 +16,9 @@
       });
     </script>
     <!-- Plugins and scripts required by this view-->
-    <!-- <script src="node_modules/chart.js/dist/chart.umd.js"></script>
-    <script src="node_modules/@coreui/chartjs/dist/js/coreui-chartjs.js"></script> -->
-    <script src="node_modules/@coreui/utils/dist/umd/index.js"></script>
+    <!-- <script src="vendors/chart.js/dist/chart.umd.js"></script>
+    <script src="vendors/@coreui/chartjs/dist/js/coreui-chartjs.js"></script> -->
+    <script src="vendors/@coreui/utils/js/index.js"></script>
     <!-- <script src="js/main.js"></script> -->
     
     <!-- Bootstrap JS Bundle -->

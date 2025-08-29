@@ -4,6 +4,48 @@ require_once 'config.php';
 $page_title = 'Manage Short Link';
 $breadcrumb_title = 'Manage Short Link';
 
+// --- Logic to manage custom shortlink domain ---
+// Catatan: Kode ini mengasumsikan Anda memiliki tabel 'settings' dengan kolom 'name' dan 'value'.
+// Kolom 'name' harus unik. Domain akan disimpan dengan name = 'shortlink_domain'.
+
+// Ambil domain kustom dari database
+try {
+    $stmt = $pdo->prepare("SELECT setting_value FROM settings WHERE setting_key = 'shortlink_domain'");
+    $stmt->execute();
+    $shortlink_domain_setting = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Gunakan domain kustom jika ada, jika tidak, gunakan BASE_URL dari config.php
+    $shortlink_domain = $shortlink_domain_setting ? rtrim($shortlink_domain_setting['setting_value'], '/') : rtrim(BASE_URL, '/');
+} catch (PDOException $e) {
+    // Jika tabel tidak ada atau terjadi error DB, gunakan BASE_URL
+    $shortlink_domain = rtrim(BASE_URL, '/');
+}
+
+// Proses permintaan untuk update domain
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_domain') {
+    $new_domain = rtrim($_POST['shortlink_domain'] ?? '', '/');
+    try {
+        if (filter_var($new_domain, FILTER_VALIDATE_URL)) {
+            // Cek apakah setting sudah ada
+            $stmt = $pdo->prepare("SELECT setting_key FROM settings WHERE setting_key = 'shortlink_domain'");
+            $stmt->execute();
+            if ($stmt->fetch()) {
+                $updateStmt = $pdo->prepare("UPDATE settings SET setting_value = ? WHERE setting_key = 'shortlink_domain'");
+                $updateStmt->execute([$new_domain]);
+            } else {
+                $insertStmt = $pdo->prepare("INSERT INTO settings (setting_key, setting_value) VALUES (?, ?)");
+                $insertStmt->execute(['shortlink_domain', $new_domain]);
+            }
+            header('Location: manage-shortlink.php');
+            exit;
+        } else {
+            $error_message = "URL Domain tidak valid. Silakan masukkan URL yang benar.";
+        }
+    } catch (PDOException $e) {
+        // Tangani error jika tabel 'settings' tidak ada atau ada masalah lain
+        $error_message = "Terjadi kesalahan database saat memperbarui domain. Pastikan tabel 'settings' sudah ada.";
+    }
+}
+
 // Ambil semua short links dari database
 $shortLinks = getAllShortLinks($pdo);
 
@@ -68,8 +110,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
   <div class="container">
     <div class="row min-vh-100">
       <div class="col-12">
-        <h1>Manage Short Link</h1>
-        <p class="lead">Kelola semua short link Anda dengan mudah</p>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h1>Manage Short Link</h1>
+                <p class="lead mb-0">Kelola semua short link Anda dengan mudah</p>
+            </div>
+            <?php if ($userLevel == 'admin'): ?>
+            <div>
+                <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#manageDomainModal">
+                    Kelola Domain
+                </button>
+            </div>
+            <?php endif; ?>
+        </div>
         
         <?php if (isset($error_message)): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -98,8 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                   <tr>
                     <td><?= $index + 1 ?></td>
                     <td>
-                      <a href="<?= BASE_URL . $link['short_code'] ?>" target="_blank">
-                        <?= htmlspecialchars($link['short_code']) ?>
+                      <a href="<?= htmlspecialchars($shortlink_domain) . '/' . htmlspecialchars($link['short_code']) ?>" target="_blank">
+                        <?= htmlspecialchars(str_replace(['http://', 'https://'], '', $shortlink_domain)) . '/' . htmlspecialchars($link['short_code']) ?>
                       </a>
                     </td>
                     <td>
@@ -158,6 +211,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-primary">Simpan Short Link</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Kelola Domain -->
+<div class="modal fade" id="manageDomainModal" tabindex="-1" aria-labelledby="manageDomainModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="manageDomainModalLabel">Kelola Domain Shortlink</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="">
+          <input type="hidden" name="action" value="update_domain">
+          <div class="mb-3">
+            <label for="shortlink_domain" class="form-label">Domain Shortlink</label>
+            <input type="url" class="form-control" id="shortlink_domain" name="shortlink_domain" required 
+                   placeholder="https://contoh.com" value="<?= htmlspecialchars($shortlink_domain) ?>">
+            <div class="form-text">Masukkan domain lengkap yang akan digunakan untuk short link, contoh: https://s.id</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan Domain</button>
           </div>
         </form>
       </div>

@@ -10,7 +10,7 @@ if (isset($_SESSION['nawala_notification']) && !empty($_SESSION['nawala_notifica
   <div id="nawalaToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-coreui-autohide="false">
     <div class="toast-header">
       <svg class="icon icon-lg me-2 text-warning">
-        <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-warning"></use>
+        <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-warning"></use>
       </svg>
       <strong class="me-auto">Peringatan</strong>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>

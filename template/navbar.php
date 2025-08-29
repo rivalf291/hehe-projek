@@ -2,7 +2,7 @@
   <div class="container-fluid border-bottom px-4">
     <button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;">
       <svg class="icon icon-lg">
-        <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-menu"></use>
+        <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-menu"></use>
       </svg>
     </button>
     <ul class="header-nav ms-auto">
@@ -11,7 +11,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <svg class="icon icon-lg">
-              <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use>
+              <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-bell"></use>
             </svg>
             <?php if (isset($_SESSION['nawala_count']) && $_SESSION['nawala_count'] > 0): ?>
               <span class="badge rounded-pill position-absolute top-0 end-0 bg-danger text-white"><?= $_SESSION['nawala_count'] ?></span>
@@ -23,7 +23,7 @@
               <div class="d-flex">
                 <div class="flex-shrink-0 me-3">
                   <svg class="icon icon-lg text-warning">
-                    <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-warning"></use>
+                    <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-warning"></use>
                   </svg>
                 </div>
                 <div class="flex-grow-1">
@@ -41,28 +41,28 @@
       <li class="nav-item dropdown">
         <button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
           <svg class="icon icon-lg theme-icon-active">
-            <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-contrast"></use>
+            <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-contrast"></use>
           </svg>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" style="--cui-dropdown-min-width: 8rem;">
           <li>
             <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="light">
               <svg class="icon icon-lg me-3">
-                <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-sun"></use>
+                <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-sun"></use>
               </svg>Light
             </button>
           </li>
           <li>
             <button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="dark">
               <svg class="icon icon-lg me-3">
-                <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-moon"></use>
+                <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-moon"></use>
               </svg>Dark
             </button>
           </li>
           <li>
             <button class="dropdown-item d-flex align-items-center active" type="button" data-coreui-theme-value="auto">
               <svg class="icon icon-lg me-3">
-                <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-contrast"></use>
+                <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-contrast"></use>
               </svg>Auto
             </button>
           </li>
@@ -79,7 +79,7 @@
           <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Account</div>
           <a class="dropdown-item" href="logout.php">
             <svg class="icon me-2">
-              <use xlink:href="../node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
+              <use xlink:href="../vendors/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
             </svg> Logout</a>
         </div>
       </li>

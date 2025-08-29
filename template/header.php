@@ -74,7 +74,7 @@ if (!empty($nawalaDomainsHeader)) {
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!-- Vendors styles-->
+    <!-- vendors styles-->
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css">
     <!-- Main styles for this application-->

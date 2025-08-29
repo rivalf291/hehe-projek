@@ -1,0 +1,12 @@
+# Mengaktifkan modul rewrite Apache
+RewriteEngine On
+
+# Kondisi: jika request BUKAN file yang ada
+RewriteCond %{REQUEST_FILENAME} !-f
+# Kondisi: jika request BUKAN direktori yang ada
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Aturan: Alihkan semua request ke redirect.php
+# ^(.*)$ menangkap semua path setelah domain (misal: "abc123")
+# dan meneruskannya sebagai parameter "code" ke redirect.php
+RewriteRule ^(.*)$ redirect.php?code=$1 [L,QSA]

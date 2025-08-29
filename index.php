@@ -3,6 +3,12 @@ require_once 'config.php';
 
 session_start();
 
+// Cek jika pengguna belum login, redirect ke halaman login
+if (!isset($_SESSION['level'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $page_title = 'Dashboard';
 $breadcrumb_title = 'Dashboard';
 
